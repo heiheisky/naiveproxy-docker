@@ -2,9 +2,9 @@ FROM golang:1.19 AS build
 
 WORKDIR /go
 
-RUN go version \
-    && go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest \
-    && /go/bin/xcaddy build --with github.com/caddyserver/forwardproxy@caddy2=github.com/klzgrad/forwardproxy@naive
+RUN go version 
+RUN go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest 
+RUN /go/bin/xcaddy build --with github.com/caddyserver/forwardproxy@caddy2=github.com/klzgrad/forwardproxy@naive
 
 FROM debian AS final
 
